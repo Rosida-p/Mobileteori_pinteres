@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+
 import 'notification_page.dart';
 import 'detail_page.dart';
+
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class Pin {
   final String image;
-  final String title;
+  final String kategori;
   final double height;
+  final String judul;
+  final String deskripsi;
 
-  const Pin(this.image, this.title, this.height);
+  const Pin(this.image, this.kategori, this.height, this.judul, this.deskripsi);
 }
 
 class HomePage extends StatefulWidget {
@@ -31,23 +35,71 @@ class _HomePageState extends State<HomePage> {
   ];
 
   static const List<Pin> pins = [
-    Pin('assets/images/kucing.jpg', 'Hewan', 200),
-    Pin('assets/images/pemandangan.jpg', 'Pemandangan', 240),
-    Pin('assets/images/kucing1.jpg', 'Hewan', 200),
-    Pin('assets/images/baju.jpg', 'Fashion', 210),
-    Pin('assets/images/bunga.jpg', 'Bunga', 250),
-    Pin('assets/images/fashion 1.jpg', 'Fashion', 200),
-    Pin('assets/images/bunga1.jpg', 'Bunga', 280),
-    Pin('assets/images/pemandangan 1.jpg', 'Pemandangan', 240),
+    Pin(
+      'assets/images/kucing.jpg',
+      'Hewan',
+      200,
+      'Kucing Lucu Berbulu Tebal',
+      'Kucing menggemaskan dengan bulu tiga warna yang halus. Cocok jadi inspirasi hewan peliharaan impianmu.',
+    ),
+    Pin(
+      'assets/images/pemandangan.jpg',
+      'Pemandangan',
+      240,
+      'Pegunungan dan Lembah Hijau',
+      'Pemandangan pegunungan megah dengan padang rumput hijau yang menenangkan mata.',
+    ),
+    Pin(
+      'assets/images/kucing1.jpg',
+      'Hewan',
+      200,
+      'Kucing Persia Imut',
+      'Kucing berbulu lebat yang sedang bersantai bersama boneka kesayangannya.',
+    ),
+    Pin(
+      'assets/images/baju.jpg',
+      'Fashion',
+      210,
+      'Inspirasi Butik Pakaian',
+      'Ide dekorasi toko pakaian yang rapi, hangat, dan estetik dengan nuansa warna lembut.',
+    ),
+    Pin(
+      'assets/images/bunga.jpg',
+      'Bunga',
+      250,
+      'Inspirasi Bunga Cantik',
+      'Temukan inspirasi bunga yang cantik untuk dekorasi dan memperindah ruanganmu.',
+    ),
+    Pin(
+      'assets/images/fashion 1.jpg',
+      'Fashion',
+      200,
+      'Koleksi Tas dan Aksesoris',
+      'Berbagai pilihan tas dan aksesoris fashion untuk melengkapi gayamu sehari-hari.',
+    ),
+    Pin(
+      'assets/images/bunga1.jpg',
+      'Bunga',
+      280,
+      'Bunga Putih Segar',
+      'Bunga putih yang elegan dan segar, cocok untuk inspirasi taman maupun dekorasi rumah.',
+    ),
+    Pin(
+      'assets/images/pemandangan 1.jpg',
+      'Pemandangan',
+      240,
+      'Langit Senja yang Indah',
+      'Langit senja dengan semburat oranye keemasan yang bikin suasana jadi tenang.',
+    ),
   ];
 
   String selected = 'Semua';
 
   // Index pin yang lolos filter kategori
   List<int> get visible => [
-        for (var i = 0; i < pins.length; i++)
-          if (selected == 'Semua' || pins[i].title == selected) i,
-      ];
+    for (var i = 0; i < pins.length; i++)
+      if (selected == 'Semua' || pins[i].kategori == selected) i,
+  ];
 
   // Jumlah kolom menyesuaikan lebar layar (browser lebar = lebih banyak kolom)
   int columnsFor(double width) {
@@ -155,7 +207,12 @@ class _HomePageState extends State<HomePage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const DetailPage(),
+                        builder: (context) => DetailPage(
+                          image: pin.image,
+                          title: pin.judul,
+                          description: pin.deskripsi,
+                          category: pin.kategori,
+                        ),
                       ),
                     );
                   },
@@ -163,23 +220,23 @@ class _HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ClipRRect(
-  borderRadius: BorderRadius.circular(16),
-  child: Image.asset(
-    pin.image,
-    height: pin.height,
-    width: double.infinity,
-    fit: BoxFit.cover,
-    errorBuilder: (context, error, stackTrace) {
-      return Container(
-        height: pin.height,
-        color: Colors.grey.shade200,
-        child: const Center(
-          child: Icon(Icons.image_not_supported),
-        ),
-      );
-    },
-  ),
-),
+                        borderRadius: BorderRadius.circular(16),
+                        child: Image.asset(
+                          pin.image,
+                          height: pin.height,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) {
+                            return Container(
+                              height: pin.height,
+                              color: Colors.grey.shade200,
+                              child: const Center(
+                                child: Icon(Icons.image_not_supported),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
                     ],
                   ),
                 );

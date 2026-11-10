@@ -66,7 +66,8 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: bg,
         elevation: 0,
-        title: const Text(
+        title: 
+        const Text(
           'Pinterest',
           style: TextStyle(
             color: red,
@@ -113,10 +114,11 @@ class _HomePageState extends State<HomePage> {
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
               itemCount: categories.length,
-              separatorBuilder: (_, __) => const SizedBox(width: 8),
+              separatorBuilder: (context, index) => const SizedBox(width: 8),
               itemBuilder: (context, i) {
                 final cat = categories[i];
                 final isSelected = cat == selected;
+
                 return ChoiceChip(
                   label: Text(cat),
                   selected: isSelected,
@@ -163,23 +165,23 @@ class _HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ClipRRect(
-  borderRadius: BorderRadius.circular(16),
-  child: Image.asset(
-    pin.image,
-    height: pin.height,
-    width: double.infinity,
-    fit: BoxFit.cover,
-    errorBuilder: (context, error, stackTrace) {
-      return Container(
-        height: pin.height,
-        color: Colors.grey.shade200,
-        child: const Center(
-          child: Icon(Icons.image_not_supported),
-        ),
-      );
-    },
-  ),
-),
+                      borderRadius: BorderRadius.circular(16),
+                      child: Image.asset(
+                      pin.image,
+                      height: pin.height,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                      return Container(
+                      height: pin.height,
+                      color: Colors.grey.shade200,
+                      child: const Center(
+                      child: Icon(Icons.image_not_supported),
+                      ),
+                      );
+                      },
+                      ),
+                      ),
                     ],
                   ),
                 );

@@ -82,8 +82,7 @@ class _SearchDetailPageState extends State<SearchDetailPage> {
     if (keyword.isEmpty) return;
     setState(() {
       _controller.text = keyword;
-      _controller.selection =
-          TextSelection.collapsed(offset: keyword.length);
+      _controller.selection = TextSelection.collapsed(offset: keyword.length);
       _submitted = true;
       _activeQuery = keyword;
       _recent.remove(keyword);
@@ -142,8 +141,10 @@ class _SearchDetailPageState extends State<SearchDetailPage> {
                 onSubmitted: _submit,
                 decoration: InputDecoration(
                   hintText: 'Cari ide',
-                  hintStyle:
-                      TextStyle(fontSize: 17, color: Colors.grey.shade600),
+                  hintStyle: TextStyle(
+                    fontSize: 17,
+                    color: Colors.grey.shade600,
+                  ),
                   contentPadding: const EdgeInsets.symmetric(horizontal: 18),
                   suffixIcon: const Icon(
                     Icons.photo_camera_outlined,
@@ -151,13 +152,17 @@ class _SearchDetailPageState extends State<SearchDetailPage> {
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(28),
-                    borderSide:
-                        BorderSide(color: Colors.grey.shade600, width: 1.2),
+                    borderSide: BorderSide(
+                      color: Colors.grey.shade600,
+                      width: 1.2,
+                    ),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(28),
-                    borderSide:
-                        const BorderSide(color: Colors.black87, width: 1.8),
+                    borderSide: const BorderSide(
+                      color: Colors.black87,
+                      width: 1.8,
+                    ),
                   ),
                 ),
               ),

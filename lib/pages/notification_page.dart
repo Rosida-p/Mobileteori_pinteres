@@ -10,13 +10,9 @@ class NotificationPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color(0xFFFFF9FA),
         centerTitle: true,
-        title: 
-        const Text(
+        title: const Text(
           'Notifikasi',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
         ),
       ),
       body: Center(
@@ -27,10 +23,7 @@ class NotificationPage extends StatelessWidget {
             children: const [
               Text(
                 'Hari ini',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 12),
 
@@ -45,7 +38,9 @@ class NotificationPage extends StatelessWidget {
                   ),
                   title: Text('Bunga yang sangat indah'),
 
-                  subtitle: Text('Temukan macam - macam bunga yang sangat bagus.'),
+                  subtitle: Text(
+                    'Temukan macam - macam bunga yang sangat bagus.',
+                  ),
                   trailing: Text('2 jam lalu', style: TextStyle(fontSize: 11)),
                 ),
               ),
@@ -57,7 +52,7 @@ class NotificationPage extends StatelessWidget {
                     radius: 26,
                     backgroundImage: AssetImage('assets/images/kucing.jpg'),
                   ),
-                  title: Text( 'Hewan yang sangat lucu'),
+                  title: Text('Hewan yang sangat lucu'),
                   subtitle: Text('Lihat koleksi kucing lucu hari ini.'),
                   trailing: Text('5 jam lalu', style: TextStyle(fontSize: 11)),
                 ),
@@ -82,10 +77,7 @@ class NotificationPage extends StatelessWidget {
               SizedBox(height: 20),
               Text(
                 'Kemarin',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 12),
 
@@ -117,18 +109,20 @@ class NotificationPage extends StatelessWidget {
                 ),
               ),
               Card(
-              color: Colors.white,
-              elevation: 0,
-              child: ListTile(
-              leading: CircleAvatar(
-              radius: 26,
-              backgroundImage: AssetImage('assets/images/pemandangan.jpg'),
+                color: Colors.white,
+                elevation: 0,
+                child: ListTile(
+                  leading: CircleAvatar(
+                    radius: 26,
+                    backgroundImage: AssetImage(
+                      'assets/images/pemandangan.jpg',
+                    ),
+                  ),
+                  title: Text('Pemandangan indah untukmu'),
+                  subtitle: Text('Jelajahi tempat-tempat yang menarik.'),
+                  trailing: Text('Kemarin', style: TextStyle(fontSize: 11)),
+                ),
               ),
-             title: Text('Pemandangan indah untukmu'),
-             subtitle: Text('Jelajahi tempat-tempat yang menarik.'),
-            trailing: Text('Kemarin', style: TextStyle(fontSize: 11)),
-            ),
-            ),
             ],
           ),
         ),
